@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mongo Movies</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="/" aria-label="Mongo Movies home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Mongo Movies</span>
+      </a>
+      <a class="button button-primary" href="/addmovies">Add a movie <span aria-hidden="true">+</span></a>
+    </header>
+
+    <section class="library" aria-labelledby="page-title">
+      <div class="library-heading">
+        <div>
+          <p class="eyebrow">YOUR COLLECTION</p>
+          <h1 id="page-title">A good story stays with you.</h1>
+          <p class="intro">Keep your favorite films together, all in one place.</p>
+        </div>
+        <a class="refresh-link" href="/">
+          <span aria-hidden="true">↻</span>
+          Refresh
+        </a>
+      </div>
+
+      <div class="collection-card">
+        <div class="collection-summary">
+          <h2>Your movies</h2>
+          <span class="movie-count"><%= movies.length %> <%= movies.length === 1 ? "movie" : "movies" %></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Year</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (movies.length === 0) { %>
+                <tr>
+                  <td class="empty-state" colspan="4">
+                    <strong>Your collection is ready for its first movie.</strong>
+                    <span>Add a film to get started.</span>
+                  </td>
+                </tr>
+              <% } else { %>
+                <% for (let i = 0; i < movies.length; i++) { %>
+                  <tr>
+                    <td class="movie-title"><%= movies[i].title %></td>
+                    <td><%= movies[i].year %></td>
+                    <td><span class="genre-tag"><%= movies[i].genre %></span></td>
+                    <td><span class="rating"><span aria-hidden="true">★</span> <%= movies[i].rating %></span></td>
+                  </tr>
+                <% } %>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="footer-note">Made for movie nights and everything in between.</p>
+    </section>
+  </main>
+</body>
+</html>

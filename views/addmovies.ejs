@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a Movie · Mongo Movies</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="/" aria-label="Mongo Movies home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Mongo Movies</span>
+      </a>
+      <a class="button button-secondary" href="/">Back to movies</a>
+    </header>
+
+    <section class="add-page" aria-labelledby="page-title">
+      <div class="add-page-heading">
+        <p class="eyebrow">GROW YOUR COLLECTION</p>
+        <h1 id="page-title">Add a movie.</h1>
+        <p class="intro">Save a film for your next movie night.</p>
+      </div>
+
+      <div class="collection-card add-card">
+        <div class="collection-summary">
+          <h2>Movie details</h2>
+        </div>
+        <form class="movie-form" action="/addmovies" method="POST">
+          <div class="form-field form-field-wide">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="e.g. The Grand Budapest Hotel" required>
+          </div>
+          <div class="form-field">
+            <label for="year">Year</label>
+            <input type="number" id="year" name="year" placeholder="e.g. 2014" required>
+          </div>
+          <div class="form-field">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" name="genre" placeholder="e.g. Comedy" required>
+          </div>
+          <div class="form-field">
+            <label for="rating">Rating</label>
+            <input type="number" id="rating" name="rating" step="0.1" placeholder="e.g. 8.5" required>
+          </div>
+          <div class="form-actions">
+            <a class="cancel-link" href="/">Cancel</a>
+            <button class="button button-primary" type="submit">Add movie <span aria-hidden="true">+</span></button>
+          </div>
+        </form>
+      </div>
+      <p class="footer-note">Made for movie nights and everything in between.</p>
+    </section>
+  </main>
+</body>
+</html>
