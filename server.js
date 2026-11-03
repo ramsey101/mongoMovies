@@ -101,12 +101,18 @@ async function main() {
   moviesCollection = client.db(dbName).collection(collectionName);
   console.log("Connected successfully to MongoDB");
 
-  app.listen(port, () => {
+  if (process.env.MODE == 'Dev') {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
+  }
+
+  
 }
 
 main().catch((err) => {
   console.error("Failed to start server:", err.message);
   process.exitCode = 1;
 });
+
+module.exports = app;
